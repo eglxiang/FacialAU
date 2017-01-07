@@ -8,5 +8,3 @@ interior_files=dir;
 video_name =interior_files(test_index+2).name;
 load(video_name);
 [test_sequence]= ProcessVideo(subset,new_height,new_width,do_normalize); %Images are now columns of a matrix
-
-

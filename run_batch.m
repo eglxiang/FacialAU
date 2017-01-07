@@ -10,16 +10,16 @@ fprintf('Generating Train and Test Indices \n');
 initial_directory= cd();
 
 video_directory='../CamA';
-new_height = 32;
-new_width =  32; % so have a fat dictionary
+new_height = 8;
+new_width =  8; % so have a fat dictionary
 
 num_videos_per_emotion=CountVideosPerEmotion(video_directory);
 cd(initial_directory);
 num_classes=length(num_videos_per_emotion);
 
 %% Set Training and Testing Indices 
-train_samples_per_class = 6;
-test_samples_per_class = 6;
+train_samples_per_class = 5;
+test_samples_per_class = 5;
 train_indices = zeros(num_classes, train_samples_per_class);
 test_indices = zeros(num_classes, test_samples_per_class);
 
@@ -41,8 +41,8 @@ do_normalize_test=0;
 
 % global_max_iter=30;
 % lasso_max_iter=100;
-global_max_iter=30;
-lasso_max_iter=3;
+global_max_iter=10;
+lasso_max_iter=2;
 
 % alpha =10;
 alpha =15;
@@ -63,29 +63,6 @@ for i=1:num_classes
 %     test_sequence = normc(test_sequence); 
     
     [matched_label,X_recovered,L_recovered] = SolveModel(num_classes,train_samples_per_class,dictionary,test_sequence,num_frames_per_train_video,global_max_iter,lasso_max_iter,alpha, new_height, new_width);
-    
-    
-    figure('units','normalized','outerposition',[0 0 1 1]); 
-    
-    subplot(4,8, [25:32]);  imagesc(X_recovered');  
-     freezeColors 
-    
-    for j=1:num_frames_per_train_video
-        subplot(4,8,j); imshow(reshape(test_sequence(:,j),64,64)/max(max(test_sequence(:,j))));
-    end
-
-    for j=1:num_frames_per_train_video
-        subplot(4,8,j+8); imshow(reshape(L_recovered(:,j),64,64)/max(max(L_recovered(:,j))));
-    end
-    
-    AX = dictionary*X_recovered;
-    for j=1:num_frames_per_train_video
-        subplot(4,8,j+16); imshow(reshape(AX(:,j),64,64)/max(AX(:)));
-    end
-    
-    colormap gray;
-    freezeColors;
-    suptitle([  'Test Task' num2str(num_experiments_run) ' of ' num2str(num_classes*test_samples_per_class)   '     Label: Matched ' num2str(matched_label)  '- Real ' num2str(i) ] );
     
     fprintf('Label: Matched %d - Real %d \n',matched_label,i);
     if(matched_label==i)
