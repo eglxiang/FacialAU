@@ -9,7 +9,10 @@ Partial Recognition Rate = 0.727941 till the test Task 136 out of 155.
 Partial Recognition Rate = 0.740260 till the test Task 154 out of 155.
 
 Final Recognition Rate = 0.741935  for the test 155 tasks.
-Confusion Matrix 
-![](AUrecognition.jpg)
+Confusion matrix of CHi-SLR on facial AUs
+![](CHi-SLR_AU_20runs.png)
+
+Confusion matrix of SLR on facial AUs
+![](SLR_AU_20runs.png)
 
 Contact: xxiang@cs.jhu.edu
