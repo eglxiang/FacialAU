@@ -14,6 +14,6 @@ Confusion matrix of CHi-SLR on facial AUs
 ![](CHi-SLR_AU_20runs.png)
 
 Confusion matrix of SLR on facial AUs
-![](SLR_AU_20runs.png)
+#![](SLR_AU_20runs.png)
 
 Contact: xxiang@cs.jhu.edu
