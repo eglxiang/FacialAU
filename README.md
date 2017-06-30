@@ -13,3 +13,11 @@ Confusion matrix of SLR on facial AUs
 #![](SLR_AU_20runs.png)
 
 Contact: xxiang@cs.jhu.edu
+
+If our work is of use to your work, please cite our paper below.
+@article{xiang2017linear,<br>
+  title={Linear Disentangled Representation Learning for Facial Actions},<br>
+  author={Xiang, Xiang and Tran, Trac D},<br>
+  journal={arXiv preprint arXiv:1701.03102},<br>
+  year={2017}<br>
+}
